@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from '@app/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import * as Joi from 'joi';
+import { OrdersRepository } from './orders.repository';
 
 @Module({
   imports: [
@@ -21,6 +22,6 @@ import * as Joi from 'joi';
     MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }]),
   ],
   controllers: [OrdersController],
-  providers: [OrdersService],
+  providers: [OrdersService, OrdersRepository],
 })
 export class OrdersModule {}
