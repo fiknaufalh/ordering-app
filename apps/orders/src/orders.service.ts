@@ -1,9 +1,9 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
+import { lastValueFrom } from 'rxjs';
+import { BILLING_SERVICE } from './constants/services';
 import { CreateOrderRequest } from './dto/create-order.request';
 import { OrdersRepository } from './orders.repository';
-import { BILLING_SERVICE } from './constants/services';
-import { lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class OrdersService {
@@ -32,5 +32,9 @@ export class OrdersService {
 
   async getOrders() {
     return this.ordersRepository.find({});
+  }
+
+  getHello(): string {
+    return 'Hello World!';
   }
 }
