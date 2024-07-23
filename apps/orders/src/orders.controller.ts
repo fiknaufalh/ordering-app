@@ -17,9 +17,4 @@ export class OrdersController {
   async getOrders() {
     return this.ordersService.getOrders();
   }
-
-  @Get()
-  getHello(): string {
-    return this.ordersService.getHello();
-  }
 }

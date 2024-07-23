@@ -18,7 +18,7 @@ export class AuthController {
     @Res({ passthrough: true }) response: Response,
   ) {
     await this.authService.login(user, response);
-    response.send(user);
+    response.status(200).send(user);
   }
 
   @UseGuards(JwtAuthGuard)
